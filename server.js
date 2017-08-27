@@ -97,7 +97,7 @@ app.get('/articles/:articleName',function(req,res)
             else
             {
                 var articleData=result.rows[0];
-               res.send(JSON.Stringify(articleData)); 
+               res.send(JSON.stringify(articleData)); 
             }
                 
         }
