@@ -7,7 +7,7 @@ var config=
 {
     user:'guptarohan1711' ,
     database:'guptarohan1711' ,
-    host:'http://db.imad.hasura-app.io' ,
+    host:'http://db.imad.hasura-app.io/database.php' ,
     port:'5432' ,
     password:process.env.DB_PASSWORD,
 };
