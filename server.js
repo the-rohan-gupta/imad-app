@@ -1,24 +1,22 @@
+
 var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
-var Pool=require('pg').Pool;
-
+var Pool = require('pg').Pool;
 
 var config={
-    user: 'guptarohan1711',
-    database: 'guptarohan1711',
+    user: 'inboxsgk',
+    database: 'inboxsgk',
     host: 'db.imad.hasura-app.io',
     port: '5432',
     password: process.env.DB_PASSWORD
 };
-
 var app = express();
 app.use(morgan('combined'));
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
-
 var pool = new Pool(config);
 app.get('/test-db', function (req, res){
     //make a select req
@@ -32,78 +30,22 @@ app.get('/test-db', function (req, res){
     });
 });
 
-
-
-
-
-app.get('/ui/style.css', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'style.css'));
+app.get('/article-one', function (req, res){
+    res.send('Article one requested and will be served here');
 });
-
-app.get('/ui/main.js', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'main.js'));
+app.get('/article-three', function (req, res){
+    res.send('Article three requested and will be served here');
+});
+app.get('/article-two', function (req, res){
+    res.send('Article two requested and will be served here');
+});
+app.get('/ui/style.css', function (req, res) {
+  res.send('Article two will be served here');
 });
 
 app.get('/ui/madi.png', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
+  res.send('Article three will be served here');
 });
-
-app.get('/article-one',function(req,res)
-{
-   res.sendFile(path.join(__dirname,'ui','article-one.html'));
-});
-
-
-//**********************counter
-var counter=0;
-app.get('/counter', function(req,res){
-    counter++;
-   res.send(counter.toString()); 
-});
-
-
-
-//****************names add
-var names=[];
-app.get('/submit-name',function(req,res)
-{
-	var name=req.query.name;
-	names.push(name);
-	res.send(JSON.stringify(names));
-});
-
-
-
-
-
-//*************connect to database
-
-
-
-var pool=new Pool(config);
-app.get('/test-db',function(req,res)
-{
-
- pool.query('SELECT * FROM test',function(req,res)
-    {
-       if(err)
-       {
-           req.status(500).send(err.toString());
-       }
-       else
-       {
-       
-           req.send(JSON.Stringify(result));           
-       }
-
-       
-    });
-    
-});
-
-
-
-
 
 
 // Do not change port, otherwise your app won't run on IMAD servers
