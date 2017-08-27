@@ -85,6 +85,7 @@ app.get('/articles',function(req,res)
     var articleName=req.query.articleName
     pool.query("SELECT * FROM article WHERE title = ' " + articleName + "'",function(err,result)
     {
+        res.send('articleName');
         if(err)
         {
             res.status(500).send(err.toString());
