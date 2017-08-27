@@ -89,17 +89,6 @@ app.get('/test-db',function(req,res)
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 // Do not change port, otherwise your app won't run on IMAD servers
 // Use 8080 only for local development if you already have apache running on 80
 
