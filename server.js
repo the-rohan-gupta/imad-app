@@ -80,10 +80,9 @@ app.get('/submit-name',function(req,res)
 
 
 //articles
-app.get('/articles',function(req,res)
+app.get('/articles/:articleName',function(req,res)
 {
-    var articleName=req.query.articleName;
-    pool.query("SELECT * FROM article WHERE title = $articleName",function(err,result)
+    pool.query("SELECT * FROM article WHERE title = $1",[req.param.articleName],function(err,result)
     {
         if(err)
         {
