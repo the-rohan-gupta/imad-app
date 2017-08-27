@@ -26,6 +26,8 @@ app.get('/article-one',function(req,res)
    res.sendFile(path.join(__dirname,'ui','article-one.html'));
 });
 
+
+//**********************counter
 var counter=0;
 app.get('/counter', function(req,res){
     counter++;
@@ -33,7 +35,7 @@ app.get('/counter', function(req,res){
 });
 
 
-
+//****************names add
 var names=[];
 app.get('/submit-name',function(req,res)
 {
@@ -41,6 +43,55 @@ app.get('/submit-name',function(req,res)
 	names.push(name);
 	res.send(JSON.stringify(names));
 });
+
+
+
+
+
+//*************connect to database
+var Pool=require('pg').Pool;
+
+var config=
+{
+    user:'guptarohan1711' ,
+    database:'guptarohan1711' ,
+    host:'http://db.imad.hasura-app.io' ,
+    port:'5432' ,
+    password:process.env.DB_PASSWORD
+}
+
+
+
+var pool=new Pool(config);
+app.get('/test-db',function(req,res)
+{
+    
+    pool.query('select * from test',function(req,res)
+    {
+       if(err)
+       {
+           req.status(500).send(err.toString());
+       }
+       else
+       {
+           req.send(JSON.Stringify(result));
+       }
+    });
+    
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
