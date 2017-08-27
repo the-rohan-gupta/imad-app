@@ -69,14 +69,17 @@ app.get('/test-db',function(req,res)
 
  pool.query('select * from test',function(req,res)
     {
-       if(err)
-       {
-           req.status(500).send(err.toString());
-       }
-       else
-       {
+      // if(err)
+       //{
+         //  req.status(500).send(err.toString());
+       //}
+      // else
+       //{
+           
+      // }
+       
            req.send(JSON.Stringify(result));
-       }
+       
     });
     
 });
