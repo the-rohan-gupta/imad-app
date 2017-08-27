@@ -29,7 +29,7 @@ app.get('/article-one',function(req,res)
 
 //**********************counter
 var counter=0;
-app.get('/test-db', function(req,res){
+app.get('/counter', function(req,res){
     counter++;
    res.send(counter.toString()); 
 });
