@@ -172,11 +172,11 @@ app.post('/login',function(req,res)
    {
        if(err)
        {
-           res.status(500).send(err.toString());
+           res.status(500).send('hahahha');
        }
        else
        {
-           var dbString=result.row[0].password;
+          /* var dbString=result.row[0].password;
            var salt=dbString.split('$')[2];
            var hashPassword=hash(password,salt);
            
@@ -186,7 +186,8 @@ app.post('/login',function(req,res)
            }
            else
            {
-               res.send('invalid');
+               res.send('invalid');*/
+               res.send(result.toString());
            }
        }
    });
