@@ -114,7 +114,7 @@ submitButton.onclick=function()
 		    }
 		    else if(request.status===403)
 		    {
-		        alert("invalid username");
+		        alert("invalid username or password");
 		    }
 		    else 
 		    {
