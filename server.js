@@ -174,7 +174,10 @@ app.post('/login',function(req,res)
        {
            res.status(500).send(err.toString());
        }
-       else
+       
+       res.status(600).send('adw');
+       
+       /*else
        {
            if(result.rows.length===0)
            {
@@ -183,7 +186,8 @@ app.post('/login',function(req,res)
            
            else
            {
-                var dbString=result.row[0].password;
+               
+               var dbString=result.row[0].password;
                var salt=dbString.split('$')[2];
                var hashPassword=hash(password,salt);
                
@@ -197,7 +201,7 @@ app.post('/login',function(req,res)
                }
            }
           
-       }
+       }*/
       
    });
 });
