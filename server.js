@@ -186,9 +186,9 @@ app.post('/login',function(req,res)
            }
            else
            {
-               res.send('invalid');*/
-               res.send(result.toString());
-           }
+               res.send('invalid');
+           }*/
+                          res.send(result.toString());
        }
    });
 });
