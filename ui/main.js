@@ -108,7 +108,7 @@ submitButton.onclick=function()
         
     };
     
-    console.log(username,password);
+    console.log(username);
     request.open('POST','http://guptarohan1711.imad.hasura-app.io/login',true);
     request.setRequestHeader('Content-Type','application/json');
     request.send(JSON.stringify({username:username,password:password}));
