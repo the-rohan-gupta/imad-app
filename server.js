@@ -172,7 +172,7 @@ app.post('/login',function(req,res)
    {
        if(err)
        {
-           res.status(500).send('hahahha');
+           res.status(500).send(err.toString());
        }
        else
        {
@@ -188,7 +188,8 @@ app.post('/login',function(req,res)
            {
                res.send('invalid');
            }*/
-                          res.send('acaw');
+           var x=1;
+                          res.send(x.toString());
        }
    });
 });
