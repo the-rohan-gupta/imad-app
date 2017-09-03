@@ -168,7 +168,7 @@ app.post('/login',function(req,res)
 {
    var username=req.body.username;
    var password=req.body.password;
-   pool.query('SELECT * from "user" WHERE username=$1',[username],function(err,result)
+ /*  pool.query('SELECT * from "user" WHERE username=$1',[username],function(err,result)
    {
        if(err)
        {
@@ -189,7 +189,10 @@ app.post('/login',function(req,res)
                res.send('invalid');
            }
        }
-   });
+      
+   });*/
+   
+   res.send(username);
 });
 
 
