@@ -105,7 +105,7 @@ submitButton.onclick=function()
     request.onreadystatechange=function()
     {
         var text=request.responseText;
-        alert(text);
+        console.log(text);
     };
     
     
