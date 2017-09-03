@@ -175,7 +175,7 @@ app.post('/login',function(req,res)
            res.status(500).send(err.toString());
        }
        
-       res.status(600).send('adw');
+       res.status(600).send(username+password);
        
        /*else
        {
