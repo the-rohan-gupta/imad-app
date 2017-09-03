@@ -25,14 +25,14 @@ button.onclick = function()
 		}
 
 
-	}
+	};
 
 //make request to the server
 request.open('GET','/counter',true);
 request.send(null);
 
 
-}
+};
 
 
 
@@ -80,13 +80,38 @@ submit.onclick=function()
 		}
 
 
-	}
+	};
 
 	request.open('GET','/submit-name?name='+name,true);
 	request.send(null);
 
 
-}
+};
+
+
+
+
+
+
+
+var submitButton=document.getElementById('submitButton');
+submitButton.onclick=function()
+{
+  
+  alert("sefefs");
+    
+};
+
+
+
+
+
+
+
+
+
+
+
 
 
 
