@@ -98,7 +98,20 @@ var submitButton=document.getElementById('submitButton');
 submitButton.onclick=function()
 {
   
-  alert("sefefs");
+    var username=document.getElementById('username');
+    var password=document.getElementById('password');
+    
+    
+    var request=new XMLHttpRequest();
+    request.onreadystatechange=function()
+    {
+        
+    };
+    
+    console.log(username,password);
+    request.open('POST','',true);
+    request.setRequestHeader('Content-Type','application/json');
+    request.send(JSON.stringify({username:username,password:password}));
     
 };
 
