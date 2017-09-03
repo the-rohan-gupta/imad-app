@@ -109,15 +109,8 @@ submitButton.onclick=function()
         if(request.readyState===XMLHttpRequest.DONE)
 		{
 
-			if(request.status===200)
-			{
-                var text=request.responseText;
-                console.log(text);
-			}
-			
-			
-			var status=request.status;
-			console.log(status);
+		
+			console.log(request.status);
 		}
         
 
