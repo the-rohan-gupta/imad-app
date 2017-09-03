@@ -100,18 +100,18 @@ submitButton.onclick=function()
   
     var username=document.getElementById('username');
     var password=document.getElementById('password');
+    console.log(username);
     
-    
-    var request=new XMLHttpRequest();
+   /* var request=new XMLHttpRequest();
     request.onreadystatechange=function()
     {
         
     };
     
-    console.log(username);
+    
     request.open('POST','http://guptarohan1711.imad.hasura-app.io/login',true);
     request.setRequestHeader('Content-Type','application/json');
-    request.send(JSON.stringify({username:username,password:password}));
+    request.send(JSON.stringify({username:username,password:password}));*/
     
 };
 
