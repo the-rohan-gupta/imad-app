@@ -176,8 +176,6 @@ app.post('/login',function(req,res)
        }
        
         var dbString=result.row[0].password;
-       var salt=dbString.split('$')[2];
-       var hashPassword=hash(password,salt);
        res.status(600).send(JSON.stringify(dbstring));
        
        /*else
