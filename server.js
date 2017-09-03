@@ -164,9 +164,9 @@ app.post('/create-user',function(req,res)
 
 
 
-app.get('/login/:username',function(req,res)
+app.post('/login',function(req,res)
 {
-  /*  var username=req.body.username;
+   var username=req.body.username;
    var password=req.body.password;
   pool.query('SELECT * from "user" WHERE username=$1',[username],function(err,result)
    {
@@ -176,23 +176,30 @@ app.get('/login/:username',function(req,res)
        }
        else
        {
-           var dbString=result.row[0].password;
-           var salt=dbString.split('$')[2];
-           var hashPassword=hash(password,salt);
-           
-           if(hashPassword===dbString)
+           if(result.rows.length===0)
            {
-               res.send('correct');
+               res.status(403).send('invalid username');
            }
+           
            else
            {
-               res.send('invalid');
+                var dbString=result.row[0].password;
+               var salt=dbString.split('$')[2];
+               var hashPassword=hash(password,salt);
+               
+               if(hashPassword===dbString)
+               {
+                   res.send('correct');
+               }
+               else
+               {
+                   res.send('invalid password');
+               }
            }
+          
        }
       
-   });*/
-   
-   res.send(req.params.username);
+   });
 });
 
 
