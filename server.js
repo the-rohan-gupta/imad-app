@@ -192,7 +192,7 @@ app.get('/login/:username',function(req,res)
       
    });*/
    
-   res.send(username);
+   res.send(req.params.username);
 });
 
 
