@@ -141,7 +141,7 @@ app.post('/create-user',function(req,res)
     var username=req.body.username;
     var password=req.body.password;
     
-   var salt=crypto.getRandomBytes(128).toString('hex');
+   var salt=crypto.randomBytes(128).toString('hex');
    var dbString=hash(password,salt); 
    pool.query('INSERT into "user"(username,password) values($1,$2)',[username,dbString], function(err,result)
     {
@@ -164,7 +164,33 @@ app.post('/create-user',function(req,res)
 
 
 
-
+app.post('/login',function(req,res)
+{
+   var username=req.body.username;
+   var password=req.body.password;
+   pool.query('SELECT * from "user" WHERE username=$1',[username],function(err,result)
+   {
+       if(err)
+       {
+           res.status(500).send(err.toString());
+       }
+       else
+       {
+           var dbString=result.row[0].password;
+           var salt=dbString.split('$')[2];
+           var hashPassword=hash(password,salt);
+           
+           if(hashPassword===dbString)
+           {
+               res.send('correct');
+           }
+           else
+           {
+               res.send('invalid');
+           }
+       }
+   });
+});
 
 
 
