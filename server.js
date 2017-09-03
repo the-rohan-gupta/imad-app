@@ -175,13 +175,7 @@ app.post('/login',function(req,res)
            res.status(500).send(err.toString());
        }
        
-               var dbString=result.rows[0].password;
-               var salt=dbString.split('$')[2];
-               var hashPassword=hash(password,salt);
-       
-       res.status(600).send(JSON.stringify(salt));
-       
-       /*else
+       else
        {
            if(result.rows.length===0)
            {
@@ -205,7 +199,7 @@ app.post('/login',function(req,res)
                }
            }
           
-       }*/
+       }
       
    });
 });
