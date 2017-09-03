@@ -104,8 +104,8 @@ submitButton.onclick=function()
     var request=new XMLHttpRequest();
     request.onreadystatechange=function()
     {
-        var counter=request.responseText;
-        alert(counter);
+        var text=request.responseText;
+        alert(text);
     };
     
     
