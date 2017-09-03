@@ -175,8 +175,7 @@ app.post('/login',function(req,res)
            res.status(500).send(err.toString());
        }
        
-        var dbString=result.row[0].password;
-       res.status(600).send(JSON.stringify(dbstring));
+       res.status(600).send(JSON.stringify(result.rows[0].password));
        
        /*else
        {
