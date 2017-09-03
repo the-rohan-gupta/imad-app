@@ -110,7 +110,7 @@ submitButton.onclick=function()
 		{
 
 		
-			console.log(request.status);
+			console.log(request.status+request.responseText);
 		}
         
 
