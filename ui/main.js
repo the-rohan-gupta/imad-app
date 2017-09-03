@@ -108,9 +108,18 @@ submitButton.onclick=function()
         
         if(request.readyState===XMLHttpRequest.DONE)
 		{
-
-		
-			console.log(request.status+request.responseText);
+		    if(request.status===200)
+		    {
+		        alert("successfull log in");
+		    }
+		    else if(request.status===403)
+		    {
+		        alert("invalid username");
+		    }
+		    else 
+		    {
+		        alert("somethong went wrong");
+		    }
 		}
         
 
